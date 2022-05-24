@@ -86,6 +86,7 @@ if __name__ == "__main__":
     )
 
     # Save and plot image
+    os.makedirs(args.output_dir, exist_ok=True)
     filename = args.input_image.split("/")[-1]
     plt.figure(figsize=(20, 20))
     plt.imshow(dreamed_image)
