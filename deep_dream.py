@@ -61,6 +61,7 @@ if __name__ == "__main__":
     parser.add_argument("--lr", default=0.01, help="learning rate")
     parser.add_argument("--octave_scale", default=1.4, help="image scale between octaves")
     parser.add_argument("--num_octaves", default=10, help="number of octaves")
+    parser.add_argument("--output-dir", default='output', help="output directory")
     args = parser.parse_args()
 
     # Load image
@@ -85,9 +86,8 @@ if __name__ == "__main__":
     )
 
     # Save and plot image
-    os.makedirs("outputs", exist_ok=True)
     filename = args.input_image.split("/")[-1]
     plt.figure(figsize=(20, 20))
     plt.imshow(dreamed_image)
-    plt.imsave(f"outputs/output_{filename}", dreamed_image)
+    plt.imsave(f"{args.output_dir}/dd_{filename}", dreamed_image)
     plt.show()
